@@ -26,8 +26,15 @@ driver.get(url)
 block = driver.find_element(By.CLASS_NAME, "meganav-parent-item__children")
 names = block.find_element(By.TAG_NAME, "ul")
 metals = names.find_elements(By.TAG_NAME, "li")
+urls = []
+names = []
+price = []
 for metal in metals:
-    url = metal.find_element(By.TAG_NAME, "a").get_attribute("href")
-    driver.get(url)
+    urls.append(metal.find_element(By.TAG_NAME, "a").get_attribute("href"))
 time.sleep(5)
+for i in urls:
+    driver.get(i)
+    time.sleep(2)
+    # table = driver.find_element(By.
+
 driver.quit()
